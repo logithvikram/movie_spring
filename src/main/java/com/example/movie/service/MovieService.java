@@ -1,2 +1,21 @@
-package com.example.movie.service;public class MovieService {
+package com.example.movie.service;
+
+import com.example.movie.entity.Movie;
+import com.example.movie.repository.MovieRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
+@Service
+public class MovieService {
+    @Autowired
+    private MovieRepository repository;
+
+    public List<Movie> findAllMovies() {
+        return repository.findAll();
+    }
+    public Optional<Movie> findMovieByImdbId(String imdbId) {
+        return repository.findMovieByImdbId(imdbId);
+    }
 }
